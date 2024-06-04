@@ -95,5 +95,8 @@
   },
   "browserslist": [
     "defaults"
-  ]
+  ],
+  "dependencies": {
+    "vanilla-cookieconsent": "^3.0.1"
+  }
 }

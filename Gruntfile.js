@@ -34,6 +34,15 @@ module.exports = function(grunt) {
           cwd: 'src/font/',
           expand: true
         }]
+      },
+      cookieconsent: {
+        files: [{
+          expand: true,
+          cwd: 'node_modules/vanilla-cookieconsent/dist/',
+          src: ['*.js', '*.css'],
+          dest: 'assets/built/',
+          extDot: 'last'
+        }]
       }
     },
     clean: {
@@ -91,6 +100,13 @@ module.exports = function(grunt) {
       js: {
         files: '<%=  config.jsSrcDir %>/**/*.js',
         tasks: ['uglify']
+      },
+      cookieconsent: {
+        files: ['node_modules/vanilla-cookieconsent/dist/*.js', 'node_modules/vanilla-cookieconsent/dist/*.css'],
+        tasks: ['copy:cookieconsent'],
+        options: {
+          livereload: true
+        }
       }
     },
     compress: {
@@ -123,12 +139,14 @@ module.exports = function(grunt) {
     'sass:dist',
     'postcss:dist',
     'copy:dist',
+    'copy:cookieconsent',
     'uglify'
   ]);
   grunt.registerTask('default', [
     'sass:dev',
     'postcss:dev',
     'copy:dev',
+    'copy:cookieconsent',
     'uglify',
     'watch'
   ]);

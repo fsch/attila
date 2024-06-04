@@ -13,6 +13,7 @@
 
 	{{!-- Styles'n'Scripts --}}
 	<link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
+	<link rel="stylesheet" type="text/css" href="{{asset "built/cookieconsent.css"}}">
 
 	<script>
 			var siteUrl = '{{@site.url}}';
@@ -60,12 +61,13 @@
 			</style>
 		{{/if}}
 	{{/match}}
+	
 
 	{{ghost_head}}
 </head>
 
 <body class="{{body_class}}">
-
+	<script type="module" src="{{asset "js/cookieconsent-config.js"}}"></script>
 	<div class="viewport">
 		<div class="nav-header">
 			<nav class="nav-wrapper" aria-label="{{t "Main"}}">
